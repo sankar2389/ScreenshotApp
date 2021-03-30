@@ -7,6 +7,7 @@
  */
 
 import React, {useEffect} from 'react';
+import secp256k1 from 'react-native-secp256k1';
 import type {Node} from 'react';
 import BackgroundService from 'react-native-background-actions';
 import {
@@ -65,8 +66,18 @@ const veryIntensiveTask = async taskDataArguments => {
       captureScreen({
         format: 'jpg',
         quality: 0.8,
+        // result: 'data-uri',
+        result: 'base64',
       }).then(
-        uri => console.log('Image saved to', uri),
+        async uri => {
+          console.log('Image URI', uri);
+          // const data = '1H1SJuGwoSFTqNI8wvVWEdGRpBvTnzLckoZ1QTF7gI0';
+          const data = await secp256k1.hex_encode(uri);
+          const privA = await secp256k1.ext.generateKey();
+          const sigA = await secp256k1.sign(data, privA);
+          const pubA = await secp256k1.computePubkey(privA, true);
+          console.log('verify: ', await secp256k1.verify(data, sigA, pubA));
+        },
         error => console.error('Oops, snapshot failed', error),
       );
       await sleep(delay);

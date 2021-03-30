@@ -12,6 +12,8 @@ target 'ScreenshotApp' do
     :hermes_enabled => false
   )
 
+  pod 'RNSecp256k1', :path => '../node_modules/react-native-secp256k1'
+
   target 'ScreenshotAppTests' do
     inherit! :complete
     # Pods for testing

@@ -5203,6 +5203,11 @@ react-native-codegen@^0.0.6:
     jscodeshift "^0.11.0"
     nullthrows "^1.1.1"
 
+react-native-secp256k1@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/react-native-secp256k1/-/react-native-secp256k1-1.0.4.tgz#38d9962df54684342dcf176f27c9e4a7f1176d1f"
+  integrity sha512-o0aXLOp/qtES4jkkWemu/ktP/3CHRoa2V9ZRE28X8loWxS6fwBSWd4cm0HiLYtn1ZSYdIBvGDeMvos/oY2zYJw==
+
 react-native-view-shot@^3.1.2:
   version "3.1.2"
   resolved "https://registry.yarnpkg.com/react-native-view-shot/-/react-native-view-shot-3.1.2.tgz#8c8e84c67a4bc8b603e697dbbd59dbc9b4f84825"
